@@ -1,10 +1,11 @@
 NAME=philo
 CC=clang
-CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors
+CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -ggdb
 SRCS=main.c \
 	init.c \
 	thread.c \
-	utils.c
+	utils.c \
+	utils1.c
 OBJS=$(SRCS:.c=.o)
 
 $(NAME): $(OBJS)

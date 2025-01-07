@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/03 10:38:09 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/03 10:55:22 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 08:37:41 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	*routine(void *thrd)
 				timestamp()) > thread->shared->config->t_die)
 		{
 			thread->starved = 1;
-			thread->shared->starved = thread->h_id;
+			_print(thread->shared, thread->h_id, "died");
+			thread->shared->starved = thread->h_id + 1;
 			break ;
 		}
 		if (eat(thread))
@@ -53,7 +54,5 @@ void	*routine(void *thrd)
 		isleep(thread->shared->config->t_sleep);
 		_print(thread->shared, thread->h_id, "is thinking");
 	}
-	if (thread->starved)
-		_print(thread->shared, thread->shared->starved, "died");
 	return (thread);
 }

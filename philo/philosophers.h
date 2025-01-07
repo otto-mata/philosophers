@@ -6,13 +6,14 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/03 10:35:12 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/03 10:49:17 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 08:14:15 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 # include <pthread.h>
+# include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/time.h>
@@ -64,5 +65,7 @@ void					*routine(void *thrd);
 
 t_shared				*shared_init(char **argv);
 t_thread				*threads_init(t_shared *shared);
+int						is_valid_int32(char const *nptr);
+int						pos_int32_atoi(char const *nptr);
 
 #endif

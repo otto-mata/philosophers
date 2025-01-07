@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/03 10:39:12 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/03 10:39:53 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 08:30:37 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static int	mutexes_init(t_shared *shared)
 static int	config_init(t_config *config, char **argv)
 {
 	config->n_access = -1;
-	config->n_threads = atoi(argv[1]);
-	config->t_die = atoi(argv[2]);
-	config->t_eat = atoi(argv[3]);
-	config->t_sleep = atoi(argv[4]);
+	config->n_threads = pos_int32_atoi(argv[1]);
+	config->t_die = pos_int32_atoi(argv[2]);
+	config->t_eat = pos_int32_atoi(argv[3]);
+	config->t_sleep = pos_int32_atoi(argv[4]);
 	if (argv[5])
-		config->n_access = atoi(argv[5]);
+		config->n_access = pos_int32_atoi(argv[5]);
 	if (!config->n_access || config->n_threads < 2 || config->t_die < 0
 		|| config->t_eat < 0 || config->t_sleep < 0)
 		return (1);
