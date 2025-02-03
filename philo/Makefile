@@ -1,6 +1,6 @@
 NAME=philo
 CC=clang
-CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -ggdb
+CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -ggdb -fsanitize=thread
 SRCS=main.c \
 	init.c \
 	thread.c \

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/03 10:39:12 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/07 08:30:37 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/22 14:25:07 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,14 @@ static int	mutexes_init(t_shared *shared)
 	if (!shared->m_io)
 		return (1);
 	shared->m_res_usage = calloc(1, sizeof(pthread_mutex_t));
-	if (!shared->m_io)
+	if (!shared->m_res_usage)
+		return (1);
+	shared->m_0xdeadbeef = calloc(1, sizeof(pthread_mutex_t));
+	if (!shared->m_0xdeadbeef)
 		return (1);
 	pthread_mutex_init(shared->m_io, 0);
 	pthread_mutex_init(shared->m_res_usage, 0);
+	pthread_mutex_init(shared->m_0xdeadbeef, 0);
 	return (0);
 }
 

@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/03 10:37:13 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/03 10:49:03 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/22 14:27:27 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-long	timestamp(void)
+unsigned long	timestamp(void)
 {
 	struct timeval	t;
 
@@ -43,7 +43,7 @@ void	_print(t_shared *shared, int id, char const *s)
 	if (!(shared->starved))
 	{
 		pthread_mutex_lock(shared->m_io);
-		printf("%-6li ", timestamp() - shared->t_start);
+		printf("%-6lu ", timestamp() - shared->t_start);
 		printf("%d ", id + 1);
 		printf("%s\n", s);
 		pthread_mutex_unlock(shared->m_io);
